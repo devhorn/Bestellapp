@@ -1,0 +1,57 @@
+:root {
+  --main-orange: #ff8000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+header {
+  height: 100px;
+  background-color: var(--main-orange);
+}
+
+header img {
+  width: 120px;
+}
+
+main {
+  display: flex;
+}
+
+.mainAndDishSection {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.restaurantInformation {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.restaurantInformation img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.dishesContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 32px;
+}
+
+.dishCategorie {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.basketContainer {
+  width: 300px;
+  border-left: 1px solid var(--main-orange);
+}

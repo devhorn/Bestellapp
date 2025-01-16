@@ -1,0 +1,12 @@
+.basket {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.basketHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

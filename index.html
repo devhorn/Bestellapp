@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/dishStyle.css" />
+    <link rel="stylesheet" href="./styles/basketStyle.css" />
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/template.js"></script>
+    <script src="./script.js"></script>
+    <title>Bestellapp</title>
+  </head>
+
+  <body onload="init()">
+    <div class="content">
+      <header>
+        <img src="./assets/img/Bestell App- Logo.svg" alt="Logo Bestellapp" />
+      </header>
+      <main>
+        <section class="mainAndDishSection">
+          <div class="restaurantInformation">
+            <img src="./assets/img/pizzeria.jpg" alt="" />
+            <h1>La Fantastica</h1>
+            <p>Bewertung (4,5 von 5 Sternen)</p>
+            <div>
+              <img src="" alt="" />
+              <a href="#pizza">Pizza</a>
+              <a href="#pasta">Pasta</a>
+              <a href="#extra">Nachspeisen</a>
+            </div>
+          </div>
+          <div class="dishesContainer">
+            <h2>Pizza</h2>
+            <div id="pizza" class="dishCategorie"></div>
+
+            <h2>Pasta</h2>
+            <div id="pasta" class="dishCategorie"></div>
+
+            <h2>Beilagen</h2>
+            <div id="extra" class="dishCategorie"></div>
+          </div>
+        </section>
+        <section class="basketContainer">
+          <div class="basket">
+            <div class="basketHead">
+              <h2>Warenkorb</h2>
+              <div class="toggleSwitch">
+                <p>toggle</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
