@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +10,11 @@
     <script src="./scripts/template.js"></script>
     <script src="./script.js"></script>
     <title>Bestellapp</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/icons/favicon-32x32.png"
+    />
   </head>
 
   <body onload="init()">
@@ -31,12 +36,15 @@
             </div>
           </div>
           <div class="dishesContainer">
+            <img class="dishImg" src="./assets/img/pizza.jpg" alt="Pizza" />
             <h2>Pizza</h2>
             <div id="pizza" class="dishCategorie"></div>
 
+            <img class="dishImg" src="./assets/img/pasta.jpg" alt="pasta" />
             <h2>Pasta</h2>
             <div id="pasta" class="dishCategorie"></div>
 
+            <img class="dishImg" src="./assets/img/dessert.jpg" alt="dessert" />
             <h2>Beilagen</h2>
             <div id="extra" class="dishCategorie"></div>
           </div>
@@ -49,9 +57,18 @@
                 <p>toggle</p>
               </div>
             </div>
+            <div id="basketContent" class="basketContent">
+              <div class="basketEmpty">
+                <img src="./assets/icons/basket.png" alt="Warenkorb" />
+                <p>Fülle deinen Warenkorb</p>
+              </div>
+            </div>
           </div>
         </section>
       </main>
+      <footer>
+        <p>footer</p>
+      </footer>
     </div>
   </body>
 </html>

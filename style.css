@@ -48,10 +48,16 @@ main {
 .dishCategorie {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   flex-grow: 1;
 }
 
 .basketContainer {
   width: 300px;
   border-left: 1px solid var(--main-orange);
+}
+
+footer {
+  height: 80px;
+  background-color: #ff8000;
 }

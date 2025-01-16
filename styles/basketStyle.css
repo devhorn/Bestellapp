@@ -2,11 +2,22 @@
   position: sticky;
   top: 0;
   width: 100%;
-  text-align: center;
 }
 
 .basketHead {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.basketEmpty {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.basketEmpty img {
+  width: 40px;
 }

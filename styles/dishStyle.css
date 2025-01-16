@@ -1,10 +1,14 @@
+.dishImg {
+  height: 150px;
+  object-fit: cover;
+}
+
 .dish {
   display: flex;
   height: 80px;
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
-  margin-top: 8px;
   border-radius: 10px;
   padding-left: 16px;
   padding-right: 16px;
