@@ -1,6 +1,7 @@
 function init() {
   getBasketFromLocalStorage();
   renderDishes();
+  renderBasket();
 }
 
 function renderDishes() {
@@ -24,22 +25,62 @@ function renderSingleDish(id, dishIndex) {
 }
 
 function addDishToBasket(dishIndex, singleDishIndex) {
+  myDishes[dishIndex].dishes[singleDishIndex].amount = 1;
   myBasket.push({
     name: myDishes[dishIndex].dishes[singleDishIndex].name,
     price: myDishes[dishIndex].dishes[singleDishIndex].price,
     amount: myDishes[dishIndex].dishes[singleDishIndex].amount,
   });
   saveToLocalStorage();
+  renderBasket();
+}
+
+function renderBasket() {
+  let basketContentRef = document.getElementById("basketContent");
+  basketContentRef.innerHTML = "";
+  if (myBasket.length == 0) {
+    basketContentRef.innerHTML = getEmptyBasketTemplate();
+  } else {
+    for (let basketIndex = 0; basketIndex < myBasket.length; basketIndex++) {
+      basketContentRef.innerHTML += getBasketItemTemplate(basketIndex);
+    }
+    renderPriceAmountOfBasket();
+  }
+}
+
+function renderPriceAmountOfBasket() {
+  let priceAmountContentRef = document.getElementById("priceAmountContent");
+  let subTotal = calculatePriceAmountOfBasket();
+  let totalPrice = subTotal;
+  if (deliveryInformations.willBePickedUp == false) {
+    totalPrice += deliveryInformations.deliveryCosts;
+  }
+  priceAmountContentRef.innerHTML = getPriceAmountTemplate(
+    subTotal,
+    totalPrice
+  );
+}
+
+function calculatePriceAmountOfBasket() {
+  let sum = 0;
+  for (let basketIndex = 0; basketIndex < myBasket.length; basketIndex++) {
+    sum += myBasket[basketIndex].price;
+  }
+  let roundedSum = sum.toFixed(2);
+  return Number(roundedSum);
 }
 
 function saveToLocalStorage() {
   localStorage.setItem("basket", JSON.stringify(myBasket));
+  localStorage.setItem("delivery", JSON.stringify(deliveryInformations));
 }
 
 function getBasketFromLocalStorage() {
   let basketObj = JSON.parse(localStorage.getItem("basket"));
+  let deliveryObj = JSON.parse(localStorage.getItem("delivery"));
   if (basketObj != null) {
     myBasket = basketObj;
+    deliveryInformations = deliveryObj;
   } else {
     saveToLocalStorage();
   }

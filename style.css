@@ -9,6 +9,11 @@
   scroll-behavior: smooth;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   height: 100px;
   background-color: var(--main-orange);
@@ -26,6 +31,7 @@ main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  border-right: 1px solid var(--main-orange);
 }
 
 .restaurantInformation {
@@ -52,12 +58,8 @@ main {
   flex-grow: 1;
 }
 
-.basketContainer {
-  width: 300px;
-  border-left: 1px solid var(--main-orange);
-}
-
 footer {
   height: 80px;
   background-color: #ff8000;
+  margin-top: auto;
 }

@@ -1,3 +1,11 @@
+:root {
+  --main-orange: #ff8000;
+}
+
+.basketContainer {
+  width: 400px;
+}
+
 .basket {
   position: sticky;
   top: 0;
@@ -5,13 +13,14 @@
 }
 
 .basketHead {
+  padding-top: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .basketEmpty {
-  margin-top: 64px;
+  padding-top: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +29,92 @@
 
 .basketEmpty img {
   width: 40px;
+}
+
+.basketContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.basketItemName {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.basketItem {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 300px;
+  gap: 12px;
+}
+
+.basketItemAmountAndPrice {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.basketAmountandButtons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.itemPriceAndDelete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.basketButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #a9a9a9;
+  border-radius: 60px;
+  padding: 18px;
+}
+
+.basketButton img {
+  width: 25px;
+}
+
+.basketButton:hover {
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px var(--main-orange));
+}
+
+.PriceAmountContent {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.subTotalAndDeliveryCosts {
+  display: flex;
+  margin-top: 8px;
+  justify-content: space-between;
+}
+
+.payButton {
+  margin-top: 16px;
+  background-color: var(--main-orange);
+  color: white;
+  padding: 16px 56px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--main-orange);
+  border-radius: 30px;
+}
+
+.payButton:hover {
+  background-color: #f5973a;
+  cursor: pointer;
 }
