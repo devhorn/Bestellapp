@@ -21,17 +21,17 @@ function getBasketItemTemplate(basketIndex) {
               <p class="basketItemName">${myBasket[basketIndex].name}</p>
               <div class="basketItemAmountAndPrice">
                 <div class="basketAmountandButtons">
-                  <div class="basketButton">
+                  <div onclick="decreaseAmountOfDishInBasket(${basketIndex})" class="basketButton">
                     <img src="./assets/icons/remove.png" alt="remove" />
                   </div>
-                  <p id="itemAmount">${myBasket[basketIndex].amount}</p>
-                  <div class="basketButton">
+                  <p>${myBasket[basketIndex].amount}</p>
+                  <div onclick="increaseAmountOfDishInBasket(${basketIndex})" class="basketButton">
                     <img src="./assets/icons/add.png" alt="add" />
                   </div>
                 </div>
                 <div class="itemPriceAndDelete">
                   <p>${myBasket[basketIndex].price} €</p>
-                  <div class="basketButton">
+                  <div onclick="removeItemFromBasket(${basketIndex})" class="basketButton">
                     <img src="./assets/icons/delete.png" alt="delete" />
                   </div>
                 </div>
@@ -49,7 +49,6 @@ function getPriceAmountTemplate(subTotal, totalPrice) {
             <p>${deliveryInformations.deliveryCosts} €</p>
           </div>
           <div class="payButton">
-            <p>Bezahlen</p>
-            <p>${totalPrice} €</p>
+            <p>Bezahlen ${totalPrice} €</p>
           </div>`;
 }

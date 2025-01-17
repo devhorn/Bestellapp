@@ -37,7 +37,9 @@ function addDishToBasket(dishIndex, singleDishIndex) {
 
 function renderBasket() {
   let basketContentRef = document.getElementById("basketContent");
+  let priceAmountContentRef = document.getElementById("priceAmountContent");
   basketContentRef.innerHTML = "";
+  priceAmountContentRef.innerHTML = "";
   if (myBasket.length == 0) {
     basketContentRef.innerHTML = getEmptyBasketTemplate();
   } else {
@@ -68,6 +70,39 @@ function calculatePriceAmountOfBasket() {
   }
   let roundedSum = sum.toFixed(2);
   return Number(roundedSum);
+}
+
+function increaseAmountOfDishInBasket(basketIndex) {
+  if (myBasket[basketIndex].amount == 1) {
+    myBasket[basketIndex].amount += 1;
+    myBasket[basketIndex].price *= myBasket[basketIndex].amount;
+  } else {
+    let priceOneUnit =
+      myBasket[basketIndex].price / myBasket[basketIndex].amount;
+    myBasket[basketIndex].amount += 1;
+    myBasket[basketIndex].price = priceOneUnit * myBasket[basketIndex].amount;
+  }
+  saveToLocalStorage();
+  renderBasket();
+}
+
+function decreaseAmountOfDishInBasket(basketIndex) {
+  if (myBasket[basketIndex].amount > 1) {
+    let priceOneUnit =
+      myBasket[basketIndex].price / myBasket[basketIndex].amount;
+    myBasket[basketIndex].amount -= 1;
+    myBasket[basketIndex].price = priceOneUnit * myBasket[basketIndex].amount;
+    saveToLocalStorage();
+    renderBasket();
+  } else {
+    return;
+  }
+}
+
+function removeItemFromBasket(basketIndex) {
+  myBasket.splice(basketIndex, 1);
+  saveToLocalStorage();
+  renderBasket();
 }
 
 function saveToLocalStorage() {
