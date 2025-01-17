@@ -80,7 +80,8 @@ function increaseAmountOfDishInBasket(basketIndex) {
     let priceOneUnit =
       myBasket[basketIndex].price / myBasket[basketIndex].amount;
     myBasket[basketIndex].amount += 1;
-    myBasket[basketIndex].price = priceOneUnit * myBasket[basketIndex].amount;
+    myBasket[basketIndex].price =
+      Math.round(priceOneUnit * myBasket[basketIndex].amount * 100) / 100;
   }
   saveToLocalStorage();
   renderBasket();
@@ -91,7 +92,8 @@ function decreaseAmountOfDishInBasket(basketIndex) {
     let priceOneUnit =
       myBasket[basketIndex].price / myBasket[basketIndex].amount;
     myBasket[basketIndex].amount -= 1;
-    myBasket[basketIndex].price = priceOneUnit * myBasket[basketIndex].amount;
+    myBasket[basketIndex].price =
+      Math.round(priceOneUnit * myBasket[basketIndex].amount * 100) / 100;
     saveToLocalStorage();
     renderBasket();
   } else {
