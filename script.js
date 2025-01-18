@@ -1,6 +1,7 @@
 function init() {
   getBasketFromLocalStorage();
   renderDishes();
+  renderToggleSwitch();
   renderBasket();
 }
 
@@ -20,13 +21,7 @@ function renderSingleDish(id, dishIndex) {
   let dishContentRef = document.getElementById(id);
   for (let i = 0; i < myDishes[dishIndex].dishes.length; i++) {
     let singleDish = myDishes[dishIndex].dishes[i];
-    let dishPrice = convertPrice(singleDish.price);
-    dishContentRef.innerHTML += getDishTemplate(
-      singleDish,
-      dishIndex,
-      i,
-      dishPrice
-    );
+    dishContentRef.innerHTML += getDishTemplate(singleDish, dishIndex, i);
   }
 }
 
@@ -50,11 +45,7 @@ function renderBasket() {
     basketContentRef.innerHTML = getEmptyBasketTemplate();
   } else {
     for (let basketIndex = 0; basketIndex < myBasket.length; basketIndex++) {
-      let basketItemPrice = convertPrice(myBasket[basketIndex].price);
-      basketContentRef.innerHTML += getBasketItemTemplate(
-        basketIndex,
-        basketItemPrice
-      );
+      basketContentRef.innerHTML += getBasketItemTemplate(basketIndex);
     }
     renderPriceAmountOfBasket();
   }
@@ -68,8 +59,8 @@ function renderPriceAmountOfBasket() {
     totalPrice += deliveryInformations.deliveryCosts;
   }
   priceAmountContentRef.innerHTML = getPriceAmountTemplate(
-    convertPrice(subTotal),
-    convertPrice(totalPrice)
+    subTotal,
+    totalPrice
   );
 }
 
@@ -149,4 +140,52 @@ function convertPrice(price) {
     priceAsString += ",00";
     return priceAsString;
   }
+}
+
+function changeToPickUp() {
+  if (deliveryInformations.willBePickedUp == false) {
+    deliveryInformations.willBePickedUp = true;
+    deliveryInformations.deliveryCosts = 0;
+    saveToLocalStorage();
+    renderBasket();
+  } else {
+    deliveryInformations.willBePickedUp = false;
+    deliveryInformations.deliveryCosts = 5;
+    saveToLocalStorage();
+    renderBasket();
+  }
+}
+
+function renderToggleSwitch() {
+  let toggleContentRef = document.getElementById("toggle");
+  if (deliveryInformations.willBePickedUp == false) {
+    toggleContentRef.innerHTML = getToggleSwitchTemplateDeactivated();
+  }
+
+  if (deliveryInformations.willBePickedUp == true) {
+    toggleContentRef.innerHTML = getToggleSwitchTemplateActivated();
+  }
+}
+
+function stayOpen(event) {
+  event.stopPropagation(event);
+}
+
+function order() {
+  let openDialogRef = document.getElementById("dialogContainer");
+  openDialogRef.innerHTML = "";
+  openDialogRef.innerHTML = getDialogTemplate();
+  openDialogRef.classList.toggle("dNone");
+  myBasket = [];
+  deliveryInformations.willBePickedUp = false;
+  deliveryInformations.deliveryCosts = 5;
+  saveToLocalStorage();
+  renderToggleSwitch();
+  renderBasket();
+}
+
+function closeDialog() {
+  let closeDialogRef = document.getElementById("dialogContainer");
+  closeDialogRef.classList.toggle("dNone");
+  event.stopPropagation();
 }

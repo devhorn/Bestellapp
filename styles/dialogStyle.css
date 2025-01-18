@@ -1,0 +1,42 @@
+.dialogContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.515);
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  width: 450px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 40px;
+  text-align: center;
+  gap: 64px;
+}
+
+.dialogHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.dNone {
+  display: none !important;
+}
+
+.thanksText {
+  font-size: 32px;
+  font-weight: 500;
+}

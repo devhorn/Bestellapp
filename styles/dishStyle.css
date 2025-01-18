@@ -1,3 +1,23 @@
+.dishesContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 16px;
+}
+
+.dishesContainer h2 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.dishCategorie {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+  margin-bottom: 24px;
+}
+
 .dishImg {
   height: 150px;
   object-fit: cover;
@@ -5,22 +25,25 @@
 
 .dish {
   display: flex;
-  height: 80px;
+  padding: 12px;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 10px;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
-.addToBasketButton {
-  padding: 10px;
-  border-radius: 100px;
-  border: 2px solid orange;
+.dishInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.addToBasketButton img {
+  width: 40px;
+  height: 40px;
 }
 
 .addToBasketButton:hover {
   cursor: pointer;
-  background-color: rgb(120, 161, 255);
+  filter: drop-shadow(0 0 10px var(--main-orange));
 }
