@@ -48,6 +48,7 @@ function renderBasket() {
       basketContentRef.innerHTML += getBasketItemTemplate(basketIndex);
     }
     renderPriceAmountOfBasket();
+    renderResponsiveBasketButton();
   }
 }
 
@@ -188,4 +189,14 @@ function closeDialog(event) {
   let closeDialogRef = document.getElementById("dialogContainer");
   closeDialogRef.classList.toggle("dNone");
   event.stopPropagation();
+}
+
+function renderResponsiveBasketButton() {
+  let respBaskeButtonRef = document.getElementById("basketButtonResponsive");
+  let subTotal = calculatePriceAmountOfBasket();
+  let totalPrice = subTotal;
+  if (deliveryInformations.willBePickedUp == false) {
+    totalPrice += deliveryInformations.deliveryCosts;
+  }
+  respBaskeButtonRef.innerHTML = getResponsiveBasketButtonTemplate(totalPrice);
 }
