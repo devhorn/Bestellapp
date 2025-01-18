@@ -20,7 +20,13 @@ function renderSingleDish(id, dishIndex) {
   let dishContentRef = document.getElementById(id);
   for (let i = 0; i < myDishes[dishIndex].dishes.length; i++) {
     let singleDish = myDishes[dishIndex].dishes[i];
-    dishContentRef.innerHTML += getDishTemplate(singleDish, dishIndex, i);
+    let dishPrice = convertPrice(singleDish.price);
+    dishContentRef.innerHTML += getDishTemplate(
+      singleDish,
+      dishIndex,
+      i,
+      dishPrice
+    );
   }
 }
 
@@ -44,7 +50,11 @@ function renderBasket() {
     basketContentRef.innerHTML = getEmptyBasketTemplate();
   } else {
     for (let basketIndex = 0; basketIndex < myBasket.length; basketIndex++) {
-      basketContentRef.innerHTML += getBasketItemTemplate(basketIndex);
+      let basketItemPrice = convertPrice(myBasket[basketIndex].price);
+      basketContentRef.innerHTML += getBasketItemTemplate(
+        basketIndex,
+        basketItemPrice
+      );
     }
     renderPriceAmountOfBasket();
   }
@@ -58,8 +68,8 @@ function renderPriceAmountOfBasket() {
     totalPrice += deliveryInformations.deliveryCosts;
   }
   priceAmountContentRef.innerHTML = getPriceAmountTemplate(
-    subTotal,
-    totalPrice
+    convertPrice(subTotal),
+    convertPrice(totalPrice)
   );
 }
 
@@ -120,5 +130,23 @@ function getBasketFromLocalStorage() {
     deliveryInformations = deliveryObj;
   } else {
     saveToLocalStorage();
+  }
+}
+
+function convertPrice(price) {
+  let priceAsString = String(price);
+  if (priceAsString.includes(".")) {
+    priceAsString = priceAsString.replace(".", ",");
+    priceAsArr = priceAsString.split(",");
+    let numAfterComma = Number(priceAsArr[1]);
+    if (numAfterComma <= 9) {
+      let resultPrice = priceAsArr.toString();
+      resultPrice = resultPrice + "0";
+      return resultPrice;
+    }
+    return priceAsString;
+  } else {
+    priceAsString += ",00";
+    return priceAsString;
   }
 }

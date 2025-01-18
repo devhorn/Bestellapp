@@ -1,9 +1,9 @@
-function getDishTemplate(singleDish, dishIndex, singleDishIndex) {
+function getDishTemplate(singleDish, dishIndex, singleDishIndex, dishPrice) {
   return `  <div class="dish">
                 <div class="dishInfo">
                     <h3 id="dishName${dishIndex}">${singleDish.name}</h3>
                     <p>${singleDish.description}</p>
-                    <p id="dishPrice${dishIndex}">${singleDish.price} €</p>
+                    <p id="dishPrice${dishIndex}">${dishPrice} €</p>
                 </div>
                 <button onclick="addDishToBasket(${dishIndex}, ${singleDishIndex})" class="addToBasketButton" type="submit">add</button>
             </div>`;
@@ -16,7 +16,7 @@ function getEmptyBasketTemplate() {
             </div>`;
 }
 
-function getBasketItemTemplate(basketIndex) {
+function getBasketItemTemplate(basketIndex, basketItemPrice) {
   return `<div class="basketItem">
               <p class="basketItemName">${myBasket[basketIndex].name}</p>
               <div class="basketItemAmountAndPrice">
@@ -30,7 +30,7 @@ function getBasketItemTemplate(basketIndex) {
                   </div>
                 </div>
                 <div class="itemPriceAndDelete">
-                  <p>${myBasket[basketIndex].price} €</p>
+                  <p>${basketItemPrice} €</p>
                   <div onclick="removeItemFromBasket(${basketIndex})" class="basketButton">
                     <img src="./assets/icons/delete.png" alt="delete" />
                   </div>
