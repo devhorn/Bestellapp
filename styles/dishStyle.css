@@ -32,6 +32,10 @@
   border-radius: 10px;
 }
 
+.dish:hover {
+  background-color: rgb(243, 243, 243);
+}
+
 .dishInfo {
   display: flex;
   flex-direction: column;

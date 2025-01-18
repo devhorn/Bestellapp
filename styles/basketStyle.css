@@ -13,7 +13,7 @@
 }
 
 .basketHead {
-  padding-top: 16px;
+  padding-top: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,6 +29,10 @@
 
 .basketEmpty img {
   width: 40px;
+}
+
+.basketEmpty p {
+  font-size: 18px;
 }
 
 .basketContent {
@@ -122,8 +126,8 @@
 }
 
 .toggleSwitch {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 32px;
+  margin-bottom: 32px;
   display: flex;
   align-items: center;
   gap: 32px;
@@ -180,7 +184,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }

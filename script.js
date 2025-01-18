@@ -184,7 +184,7 @@ function order() {
   renderBasket();
 }
 
-function closeDialog() {
+function closeDialog(event) {
   let closeDialogRef = document.getElementById("dialogContainer");
   closeDialogRef.classList.toggle("dNone");
   event.stopPropagation();

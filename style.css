@@ -2,6 +2,19 @@
   --main-orange: #ff8000;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-orange);
+  border-radius: 5px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -59,6 +72,20 @@ main {
 .restaurantInformationText p,
 .quickLinks img {
   padding-left: 16px;
+}
+
+.rating {
+  display: flex;
+  gap: 8px;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 6px;
+}
+
+.ratingStars img {
+  width: 16px;
 }
 
 .quickLinks img {

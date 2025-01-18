@@ -40,3 +40,11 @@
   font-size: 32px;
   font-weight: 500;
 }
+
+.dialogIconsRow {
+  display: flex;
+}
+
+.dialogIcon {
+  width: 80px;
+}

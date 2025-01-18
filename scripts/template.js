@@ -76,6 +76,10 @@ function getToggleSwitchTemplateActivated() {
 function getDialogTemplate() {
   return `<div onclick="stayOpen(event)" class="dialog">
             <p class="thanksText">Vielen Dank für deine Bestellung😊</p>
+            <div class="dialogIconsRow>
+              <img class="dialogIcon" src="./assets/icons/pizza.png" />
+              <img class="dialogIcon" src="./assets/icons/restaurant.png" />
+            </div>
             <div class="payButton">
               <p onclick="closeDialog(event)">Zurück zur Bestellseite</p>
             </div>
