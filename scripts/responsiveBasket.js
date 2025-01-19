@@ -27,7 +27,7 @@ function renderRespBasket() {
   respBasketContentRef.innerHTML = "";
   respPriceAmountContentRef.innerHTML = "";
   if (myBasket.length == 0) {
-    respBasketContentRef.innerHTML = getEmptyBasketTemplate();
+    respBasketContentRef.innerHTML = getEmptyRespBasketTemplate();
   } else {
     for (let basketIndex = 0; basketIndex < myBasket.length; basketIndex++) {
       respBasketContentRef.innerHTML += getBasketItemTemplate(basketIndex);
@@ -46,8 +46,46 @@ function renderPriceAmountOfRespBasket() {
   if (deliveryInformations.willBePickedUp == false) {
     totalPrice += deliveryInformations.deliveryCosts;
   }
-  respPriceAmountContentRef.innerHTML = getPriceAmountTemplate(
+  respPriceAmountContentRef.innerHTML = getPriceAmountRespTemplate(
     subTotal,
     totalPrice
   );
+}
+
+function closeRespBasket(event) {
+  let respBasketRef = document.getElementById("respBasketContainer");
+  respBasketRef.classList.toggle("dNone");
+  event.stopPropagation();
+}
+
+function renderRespToggleSwitch() {
+  let toggleContentRef = document.getElementById("respToggle");
+  if (deliveryInformations.willBePickedUp == false) {
+    toggleContentRef.innerHTML = getRespToggleSwitchTemplateDeactivated();
+  }
+
+  if (deliveryInformations.willBePickedUp == true) {
+    toggleContentRef.innerHTML = getRespToggleSwitchTemplateActivated();
+  }
+}
+
+function respOrder() {
+  let openDialogRef = document.getElementById("respDialogContainer");
+  openDialogRef.innerHTML = "";
+  openDialogRef.innerHTML = getRespDialogTemplate();
+  openDialogRef.classList.toggle("dNone");
+  myBasket = [];
+  deliveryInformations.willBePickedUp = false;
+  deliveryInformations.deliveryCosts = 5;
+  saveToLocalStorage();
+  renderToggleSwitchRespAndDesktop();
+  renderDesktopAndRespBasket();
+  renderRespBasketButton();
+}
+
+function closeRespDialog(event) {
+  let closeDialogRef = document.getElementById("respDialogContainer");
+  closeDialogRef.classList.toggle("dNone");
+  closeRespBasket(event);
+  event.stopPropagation();
 }

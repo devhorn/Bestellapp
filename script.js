@@ -1,13 +1,18 @@
 function init() {
   getBasketFromLocalStorage();
   renderDishes();
-  renderToggleSwitch();
+  renderToggleSwitchRespAndDesktop();
   renderDesktopAndRespBasket();
 }
 
 function renderDesktopAndRespBasket() {
   renderBasket();
   renderRespBasket();
+}
+
+function renderToggleSwitchRespAndDesktop() {
+  renderToggleSwitch();
+  renderRespToggleSwitch();
 }
 
 function renderDishes() {
@@ -112,6 +117,7 @@ function removeItemFromBasket(basketIndex) {
   myBasket.splice(basketIndex, 1);
   saveToLocalStorage();
   renderDesktopAndRespBasket();
+  renderRespBasketButton();
 }
 
 function saveToLocalStorage() {
@@ -186,7 +192,7 @@ function order() {
   deliveryInformations.willBePickedUp = false;
   deliveryInformations.deliveryCosts = 5;
   saveToLocalStorage();
-  renderToggleSwitch();
+  renderToggleSwitchRespAndDesktop();
   renderDesktopAndRespBasket();
   renderRespBasketButton();
 }

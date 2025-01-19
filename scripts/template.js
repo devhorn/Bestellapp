@@ -86,6 +86,62 @@ function getDialogTemplate() {
           </div>`;
 }
 
+function getRespDialogTemplate() {
+  return `<div onclick="stayOpen(event)" class="dialog">
+            <p class="thanksText">Vielen Dank für deine Bestellung😊</p>
+            <div class="dialogIconsRow>
+              <img class="dialogIcon" src="./assets/icons/pizza.png" />
+              <img class="dialogIcon" src="./assets/icons/restaurant.png" />
+            </div>
+            <div class="payButton">
+              <p onclick="closeRespDialog(event)">Zurück zur Bestellseite</p>
+            </div>
+          </div>`;
+}
+
 function getRespBasketButtonTemplate(basketAmount) {
   return `<p>Warenkorb (${convertPrice(basketAmount)} €)</p>`;
+}
+
+function getPriceAmountRespTemplate(subTotal, totalPrice) {
+  return `<div class="subTotalAndDeliveryCosts">
+            <p>Zwischensumme:</p>
+            <p>${convertPrice(subTotal)} €</p>
+          </div>
+          <div class="subTotalAndDeliveryCosts">
+            <p>Lieferkosten:</p>
+            <p>${convertPrice(deliveryInformations.deliveryCosts)} €</p>
+          </div>
+          <div onclick="closeRespBasket(event)" class="payButton">
+            <p>Weitere Gerichte hinzufügen</p>
+          </div>
+          <div onclick="respOrder()" class="payButton">
+            <p>Bezahlen ${convertPrice(totalPrice)} €</p>
+          </div>`;
+}
+
+function getEmptyRespBasketTemplate() {
+  return `  <div class="basketEmpty">
+                <img src="./assets/icons/basket.png" alt="Warenkorb" />
+                <p>Dein Warenkorb ist leer</p>
+            </div>
+            <div onclick="closeRespBasket(event)" class="payButton">
+              <p>Gerichte hinzufügen</p>
+            </div>`;
+}
+
+function getRespToggleSwitchTemplateDeactivated() {
+  return `<label class="switch">
+              <input id="respToggle" type="checkbox" onchange="changeToPickUp()"/>
+              <span class="slider round"></span>
+          </label>
+          <p>Selbst abholen</p>`;
+}
+
+function getRespToggleSwitchTemplateActivated() {
+  return `<label class="switch">
+              <input id="respToggle" type="checkbox" onchange="changeToPickUp()" checked/>
+              <span class="slider round"></span>
+          </label>
+          <p>Selbst abholen</p>`;
 }
