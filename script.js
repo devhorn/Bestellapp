@@ -2,7 +2,12 @@ function init() {
   getBasketFromLocalStorage();
   renderDishes();
   renderToggleSwitch();
+  renderDesktopAndRespBasket();
+}
+
+function renderDesktopAndRespBasket() {
   renderBasket();
+  renderRespBasket();
 }
 
 function renderDishes() {
@@ -33,7 +38,7 @@ function addDishToBasket(dishIndex, singleDishIndex) {
     amount: myDishes[dishIndex].dishes[singleDishIndex].amount,
   });
   saveToLocalStorage();
-  renderBasket();
+  renderDesktopAndRespBasket();
 }
 
 function renderBasket() {
@@ -48,7 +53,7 @@ function renderBasket() {
       basketContentRef.innerHTML += getBasketItemTemplate(basketIndex);
     }
     renderPriceAmountOfBasket();
-    renderResponsiveBasketButton();
+    renderRespBasketButton();
   }
 }
 
@@ -86,7 +91,7 @@ function increaseAmountOfDishInBasket(basketIndex) {
       Math.round(priceOneUnit * myBasket[basketIndex].amount * 100) / 100;
   }
   saveToLocalStorage();
-  renderBasket();
+  renderDesktopAndRespBasket();
 }
 
 function decreaseAmountOfDishInBasket(basketIndex) {
@@ -97,7 +102,7 @@ function decreaseAmountOfDishInBasket(basketIndex) {
     myBasket[basketIndex].price =
       Math.round(priceOneUnit * myBasket[basketIndex].amount * 100) / 100;
     saveToLocalStorage();
-    renderBasket();
+    renderDesktopAndRespBasket();
   } else {
     return;
   }
@@ -106,7 +111,7 @@ function decreaseAmountOfDishInBasket(basketIndex) {
 function removeItemFromBasket(basketIndex) {
   myBasket.splice(basketIndex, 1);
   saveToLocalStorage();
-  renderBasket();
+  renderDesktopAndRespBasket();
 }
 
 function saveToLocalStorage() {
@@ -148,12 +153,12 @@ function changeToPickUp() {
     deliveryInformations.willBePickedUp = true;
     deliveryInformations.deliveryCosts = 0;
     saveToLocalStorage();
-    renderBasket();
+    renderDesktopAndRespBasket();
   } else {
     deliveryInformations.willBePickedUp = false;
     deliveryInformations.deliveryCosts = 5;
     saveToLocalStorage();
-    renderBasket();
+    renderDesktopAndRespBasket();
   }
 }
 
@@ -182,21 +187,12 @@ function order() {
   deliveryInformations.deliveryCosts = 5;
   saveToLocalStorage();
   renderToggleSwitch();
-  renderBasket();
+  renderDesktopAndRespBasket();
+  renderRespBasketButton();
 }
 
 function closeDialog(event) {
   let closeDialogRef = document.getElementById("dialogContainer");
   closeDialogRef.classList.toggle("dNone");
   event.stopPropagation();
-}
-
-function renderResponsiveBasketButton() {
-  let respBaskeButtonRef = document.getElementById("basketButtonResponsive");
-  let subTotal = calculatePriceAmountOfBasket();
-  let totalPrice = subTotal;
-  if (deliveryInformations.willBePickedUp == false) {
-    totalPrice += deliveryInformations.deliveryCosts;
-  }
-  respBaskeButtonRef.innerHTML = getResponsiveBasketButtonTemplate(totalPrice);
 }

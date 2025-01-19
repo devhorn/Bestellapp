@@ -86,6 +86,6 @@ function getDialogTemplate() {
           </div>`;
 }
 
-function getResponsiveBasketButtonTemplate(basketAmount) {
+function getRespBasketButtonTemplate(basketAmount) {
   return `<p>Warenkorb (${convertPrice(basketAmount)} €)</p>`;
 }

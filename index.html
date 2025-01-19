@@ -11,6 +11,7 @@
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
     <script src="./script.js"></script>
+    <script src="scripts/responsiveBasket.js"></script>
     <title>Bestellapp</title>
     <link
       rel="icon"
@@ -64,8 +65,8 @@
             <img class="dishImg" src="./assets/img/dessert.jpg" alt="dessert" />
             <h2 id="extraSection">Desserts</h2>
             <div id="extra" class="dishCategorie"></div>
-            <div class="basketButtonResponsive">
-              <p id="basketButtonResponsive">Warenkorb</p>
+            <div onclick="openRespBasket()" class="basketButtonResp">
+              <p id="basketButtonResp">Warenkorb</p>
             </div>
           </div>
         </section>
@@ -84,6 +85,16 @@
           id="dialogContainer"
           class="dialogContainer dNone"
         ></div>
+        <div id="respBasketContainer" class="respBasketContainer dNone">
+          <div class="basket">
+            <div class="basketHead">
+              <h2>Warenkorb</h2>
+              <div id="respToggle" class="toggleSwitch"></div>
+            </div>
+            <div id="respBasketContent" class="basketContent"></div>
+            <div id="respPriceAmountContent" class="PriceAmountContent"></div>
+          </div>
+        </div>
       </main>
       <footer>
         <div class="footerContent">
