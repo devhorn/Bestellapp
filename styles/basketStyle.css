@@ -52,6 +52,8 @@
   margin: 0 auto;
   width: 300px;
   gap: 12px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  padding-bottom: 16px;
 }
 
 .basketItemAmountAndPrice {
@@ -198,7 +200,27 @@ input:checked + .slider:before {
 
 /* Responsive */
 
-@media (max-width: 900px) {
+.respBasketContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 18px;
+}
+
+.respBasket {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.respBasketHead {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 950px) {
   .basketContainer {
     display: none;
   }
@@ -230,6 +252,47 @@ input:checked + .slider:before {
     background-color: #f5973a;
     cursor: pointer;
   }
+
+  .basketHead {
+    position: relative;
+  }
+
+  .respBasketContainer {
+    padding-left: 54px;
+    padding-right: 54px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .subTotalAndDeliveryCosts {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .basketItemName {
+    text-align: center;
+  }
+
+  .PriceAmountContent {
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .respBasketContainer {
+    padding: 18px;
+  }
+
+  .itemPriceAndDelete {
+    width: 115px;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .basketItemAmountAndPrice {
+    gap: 24px;
+    margin: 0 auto;
+  }
 }
 
 .respBasketContainer {
@@ -242,4 +305,22 @@ input:checked + .slider:before {
   height: 100vh;
   width: 100%;
   background-color: rgba(255, 255, 255);
+}
+
+.respBasketBackbutton {
+  margin-top: 16px;
+  background-color: white;
+  color: black;
+  padding: 16px 56px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--main-orange);
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.respBasketBackbutton:hover {
+  background-color: #f8c693;
+  cursor: pointer;
 }

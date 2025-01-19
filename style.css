@@ -27,6 +27,10 @@ h1 {
   font-size: 32px;
 }
 
+h2 {
+  font-size: 28px;
+}
+
 .content {
   display: flex;
   flex-direction: column;

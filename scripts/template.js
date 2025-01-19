@@ -112,7 +112,7 @@ function getPriceAmountRespTemplate(subTotal, totalPrice) {
             <p>Lieferkosten:</p>
             <p>${convertPrice(deliveryInformations.deliveryCosts)} €</p>
           </div>
-          <div onclick="closeRespBasket(event)" class="payButton">
+          <div onclick="closeRespBasket(event)" class="respBasketBackbutton">
             <p>Weitere Gerichte hinzufügen</p>
           </div>
           <div onclick="respOrder()" class="payButton">
@@ -125,7 +125,7 @@ function getEmptyRespBasketTemplate() {
                 <img src="./assets/icons/basket.png" alt="Warenkorb" />
                 <p>Dein Warenkorb ist leer</p>
             </div>
-            <div onclick="closeRespBasket(event)" class="payButton">
+            <div onclick="closeRespBasket(event)" class="respBasketBackbutton">
               <p>Gerichte hinzufügen</p>
             </div>`;
 }

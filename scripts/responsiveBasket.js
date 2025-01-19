@@ -11,12 +11,7 @@ function renderRespBasketButton() {
 function openRespBasket() {
   let openDialogRef = document.getElementById("respBasketContainer");
   openDialogRef.classList.toggle("dNone");
-}
-
-function closeResponisveBasket(event) {
-  let closeDialogRef = document.getElementById("respBasketContainer");
-  closeDialogRef.classList.toggle("dNone");
-  event.stopPropagation();
+  document.getElementsByTagName("body")[0].style.overflow = "hidden";
 }
 
 function renderRespBasket() {
@@ -53,8 +48,9 @@ function renderPriceAmountOfRespBasket() {
 }
 
 function closeRespBasket(event) {
-  let respBasketRef = document.getElementById("respBasketContainer");
-  respBasketRef.classList.toggle("dNone");
+  let closeDialogRef = document.getElementById("respBasketContainer");
+  closeDialogRef.classList.toggle("dNone");
+  document.getElementsByTagName("body")[0].style.overflow = "auto";
   event.stopPropagation();
 }
 
