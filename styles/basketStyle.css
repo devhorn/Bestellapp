@@ -311,7 +311,7 @@ input:checked + .slider:before {
   margin-top: 16px;
   background-color: white;
   color: black;
-  padding: 16px 56px;
+  padding: 16px 20px;
   display: flex;
   justify-content: center;
   border: 1px solid var(--main-orange);
