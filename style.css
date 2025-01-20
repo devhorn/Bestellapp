@@ -53,6 +53,14 @@ main {
   min-height: 100vh;
 }
 
+#pizzalogo {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  top: 230px;
+  left: calc(50% - 260px);
+}
+
 .mainAndDishSection {
   display: flex;
   flex-direction: column;
@@ -65,9 +73,15 @@ main {
   flex-direction: column;
   flex: 1;
 }
+
+.headerImg {
+  display: flex;
+}
+
 .restaurantInformationImg {
   height: 200px;
   object-fit: cover;
+  flex: 1;
 }
 
 .restaurantInformationText {

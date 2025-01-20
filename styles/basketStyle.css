@@ -276,6 +276,16 @@ input:checked + .slider:before {
   .PriceAmountContent {
     padding: 32px 20px;
   }
+
+  #pizzalogo {
+    left: calc(50% - 60px);
+  }
+}
+
+@media (max-width: 500px) {
+  .restaurantInformation {
+    padding-top: 30px;
+  }
 }
 
 @media (max-width: 400px) {
