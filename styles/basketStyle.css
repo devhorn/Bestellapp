@@ -227,7 +227,7 @@ input:checked + .slider:before {
 
   .basketButtonResp {
     position: sticky;
-    bottom: 0;
+    bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -293,6 +293,26 @@ input:checked + .slider:before {
     gap: 24px;
     margin: 0 auto;
   }
+
+  .dialogContainer {
+    width: 300px;
+  }
+
+  .footerContent {
+    padding: 0 16px 0 16px;
+  }
+  .logo {
+    width: 100px;
+  }
+
+  .socialMediaIcons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .socialIcon {
+    height: 24px;
+  }
 }
 
 .respBasketContainer {
@@ -323,4 +343,8 @@ input:checked + .slider:before {
 .respBasketBackbutton:hover {
   background-color: #f8c693;
   cursor: pointer;
+}
+
+.respThanksText {
+  font-size: 30px;
 }

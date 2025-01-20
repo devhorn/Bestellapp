@@ -48,3 +48,17 @@
 .dialogIcon {
   width: 80px;
 }
+
+.respDialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 300px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 40px;
+  text-align: center;
+  gap: 64px;
+}

@@ -87,13 +87,13 @@ function getDialogTemplate() {
 }
 
 function getRespDialogTemplate() {
-  return `<div onclick="stayOpen(event)" class="dialog">
-            <p class="thanksText">Vielen Dank für deine Bestellung😊</p>
+  return `<div onclick="stayOpen(event)" class="respDialog">
+            <p class="respThanksText">Vielen Dank für deine Bestellung😊</p>
             <div class="dialogIconsRow>
               <img class="dialogIcon" src="./assets/icons/pizza.png" />
               <img class="dialogIcon" src="./assets/icons/restaurant.png" />
             </div>
-            <div class="payButton">
+            <div class="respBasketBackbutton">
               <p onclick="closeRespDialog(event)">Zurück zur Bestellseite</p>
             </div>
           </div>`;
