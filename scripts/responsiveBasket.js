@@ -2,10 +2,14 @@ function renderRespBasketButton() {
   let respBaskeButtonRef = document.getElementById("basketButtonResp");
   let subTotal = calculatePriceAmountOfBasket();
   let totalPrice = subTotal;
-  if (deliveryInformations.willBePickedUp == false) {
-    totalPrice += deliveryInformations.deliveryCosts;
+  if (myBasket.length == 0) {
+    respBaskeButtonRef.innerHTML = getEmptyRespBasketButtonTemplate();
+  } else {
+    if (deliveryInformations.willBePickedUp == false) {
+      totalPrice += deliveryInformations.deliveryCosts;
+    }
+    respBaskeButtonRef.innerHTML = getRespBasketButtonTemplate(totalPrice);
   }
-  respBaskeButtonRef.innerHTML = getRespBasketButtonTemplate(totalPrice);
 }
 
 function openRespBasket() {

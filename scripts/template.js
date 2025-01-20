@@ -103,6 +103,10 @@ function getRespBasketButtonTemplate(basketAmount) {
   return `<p>Warenkorb (${convertPrice(basketAmount)} €)</p>`;
 }
 
+function getEmptyRespBasketButtonTemplate() {
+  return `<p>Warenkorb</p>`;
+}
+
 function getPriceAmountRespTemplate(subTotal, totalPrice) {
   return `<div class="subTotalAndDeliveryCosts">
             <p>Zwischensumme:</p>
